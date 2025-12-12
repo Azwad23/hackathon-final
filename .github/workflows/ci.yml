@@ -137,15 +137,9 @@ jobs:
     runs-on: ubuntu-24.04
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    environment:
-      name: production
-      url: ${{ steps.deploy.outputs.url }}
     steps:
-      - name: Deploy to Railway
-        id: deploy
-        uses: railwayapp/railway-deploy@v3
-        with:
-          railway_token: ${{ secrets.RAILWAY_TOKEN }}
-          service: delineate-api
-        env:
-          RAILWAY_DOCKERFILE_PATH: docker/Dockerfile.prod
+      - name: Deployment placeholder
+        run: |
+          echo "✅ Build completed successfully"
+          echo "📦 Docker image ready for deployment"
+          echo "🚀 Configure your deployment platform (Railway, Render, Fly.io, etc.)"
