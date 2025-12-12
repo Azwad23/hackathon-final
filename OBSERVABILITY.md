@@ -16,6 +16,7 @@
 ## OpenTelemetry Setup
 
 1. **Install Dependencies**:
+
    ```bash
    cd frontend
    npm install @opentelemetry/api @opentelemetry/sdk-browser @opentelemetry/exporter-trace-otlp-http
@@ -47,6 +48,7 @@ docker compose -f docker/compose.dev.yml up -d
 ## Testing Observability
 
 1. **Test Sentry Integration**:
+
    ```bash
    curl -X POST "http://localhost:3000/v1/download/check?sentry_test=true" \
      -H "Content-Type: application/json" \
