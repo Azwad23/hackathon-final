@@ -548,6 +548,45 @@ npm run docker:prod  # Start with Docker (production)
 └── eslint.config.mjs
 ```
 
+## CI/CD Pipeline
+
+[![CI/CD Pipeline](https://github.com/bongodev/cuet-micro-ops-hackthon-2025/actions/workflows/ci.yml/badge.svg)](https://github.com/bongodev/cuet-micro-ops-hackthon-2025/actions/workflows/ci.yml)
+
+This project uses GitHub Actions for continuous integration and deployment with the following stages:
+
+1. **🔍 Lint & Format** - ESLint and Prettier checks
+2. **🔒 Security Scan** - Trivy vulnerability scanning
+3. **🧪 E2E Tests** - End-to-end API testing
+4. **📦 Build & Push** - Docker image build and registry push
+5. **🚀 Deploy** - Automatic deployment to Railway (production only)
+
+### For Contributors
+
+Before pushing code, run these commands locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Run linting and formatting
+npm run lint
+npm run format:check
+
+# Run tests
+npm run test:e2e
+
+# Build Docker image (optional)
+docker build -f docker/Dockerfile.prod -t delineate-test .
+```
+
+### Pipeline Features
+
+- ✅ **Dependency Caching** - npm dependencies cached for faster builds
+- ✅ **Security Scanning** - Trivy scans for vulnerabilities
+- ✅ **Container Registry** - Images pushed to GitHub Container Registry
+- ✅ **Automatic Deployment** - Railway deployment on main branch
+- ✅ **Fail Fast** - Pipeline stops on first error
+
 ## Security Features
 
 - Request ID tracking for distributed tracing
